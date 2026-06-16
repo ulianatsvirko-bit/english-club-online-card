@@ -152,15 +152,45 @@
         </sc-if>
 
         <sc-if value="{{ showSuccess }}" hint-placeholder-val="{{ false }}">
-          <div style="text-align: center; padding: 8px 4px 6px;">
-            <div style="width: 62px; height: 62px; margin: 0 auto; border-radius: 50%; background: #eaf7f1; border: 2px solid #bfe6d3; display: flex; align-items: center; justify-content: center; font-size: 30px;">✓</div>
-            <div style="font-family: 'Fredoka'; font-weight: 600; font-size: 22px; color: #2c211b; margin-top: 14px;">Заявка готова!</div>
-            <div style="font-family: 'Nunito'; font-weight: 600; font-size: 14.5px; color: #6f6253; line-height: 1.5; margin-top: 8px;">Если чат не открылся автоматически — напишите мне напрямую, я отвечу и подберём удобное время.</div>
-            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 18px;">
-              <a class="lk" href="{{ waHref }}" target="_blank" rel="noopener" style="text-decoration: none; display: block; font-family: 'Fredoka'; font-weight: 600; font-size: 16px; color: #fff; background: #25a35a; border-radius: 13px; padding: 13px;">Написать в WhatsApp</a>
-              <a class="lk" href="{{ tgHref }}" target="_blank" rel="noopener" style="text-decoration: none; display: block; font-family: 'Fredoka'; font-weight: 600; font-size: 16px; color: #fff; background: #2f9bd8; border-radius: 13px; padding: 13px;">Написать в Telegram</a>
-              <button class="lk" onClick="{{ reset }}" style="border: none; cursor: pointer; background: transparent; font-family: 'Nunito'; font-weight: 700; font-size: 13.5px; color: #a8997f; padding: 4px;">← Изменить заявку</button>
+          <style>
+            @keyframes pop-in {
+              0% { transform: scale(0.6); opacity: 0; }
+              70% { transform: scale(1.12); }
+              100% { transform: scale(1); opacity: 1; }
+            }
+            @keyframes fade-up {
+              from { opacity: 0; transform: translateY(12px); }
+              to   { opacity: 1; transform: translateY(0); }
+            }
+            .success-icon { animation: pop-in .45s cubic-bezier(.34,1.56,.64,1) both; }
+            .success-title { animation: fade-up .4s .2s ease both; }
+            .success-sub   { animation: fade-up .4s .35s ease both; }
+            .success-items { animation: fade-up .4s .45s ease both; }
+            .success-btn   { animation: fade-up .4s .55s ease both; }
+          </style>
+          <div style="text-align: center; padding: 10px 4px 8px;">
+
+            <!-- иконка -->
+            <div class="success-icon" style="width: 80px; height: 80px; margin: 0 auto; border-radius: 50%; background: linear-gradient(135deg, #a8161b, #d4444a); box-shadow: 0 10px 28px rgba(168,22,27,.32); display: flex; align-items: center; justify-content: center; font-size: 36px;">🎉</div>
+
+            <!-- заголовок -->
+            <div class="success-title" style="font-family: 'Fredoka'; font-weight: 700; font-size: 26px; color: #2c211b; margin-top: 18px; line-height: 1.1;">Заявка отправлена!</div>
+            <div class="success-sub" style="font-family: 'Nunito'; font-weight: 600; font-size: 14px; color: #8a7a68; line-height: 1.55; margin-top: 8px;">Я получила её и скоро свяжусь с вами,<br>чтобы подобрать удобное время 🙌</div>
+
+            <!-- плашки -->
+            <div class="success-items" style="display: flex; flex-direction: column; gap: 9px; margin-top: 20px; text-align: left;">
+              <div style="display: flex; align-items: center; gap: 11px; background: #fbf6ec; border: 1.5px solid #ece0cd; border-radius: 14px; padding: 12px 15px;">
+                <span style="font-size: 20px;">📬</span>
+                <span style="font-family: 'Nunito'; font-weight: 600; font-size: 13.5px; color: #6f6253; line-height: 1.4;">Заявка уже у меня — отвечу в течение дня</span>
+              </div>
+              <div style="display: flex; align-items: center; gap: 11px; background: #fbf6ec; border: 1.5px solid #ece0cd; border-radius: 14px; padding: 12px 15px;">
+                <span style="font-size: 20px;">💬</span>
+                <span style="font-family: 'Nunito'; font-weight: 600; font-size: 13.5px; color: #6f6253; line-height: 1.4;">Если хотите написать прямо сейчас — я в Telegram <a href="https://t.me/tsvirkouliana" target="_blank" style="color: #a8161b; text-decoration: none;">@tsvirkouliana</a></span>
+              </div>
             </div>
+
+            <!-- кнопка назад -->
+            <button class="success-btn lk" onClick="{{ reset }}" style="margin-top: 18px; border: 1.5px solid #ece0cd; cursor: pointer; background: #fff; font-family: 'Nunito'; font-weight: 700; font-size: 13.5px; color: #a8997f; padding: 10px 22px; border-radius: 999px;">← Изменить заявку</button>
           </div>
         </sc-if>
 
