@@ -46,6 +46,27 @@
           <div style="font-family: 'Fredoka'; font-weight: 600; font-size: 12.5px; white-space: nowrap; color: #fff; background: rgba(255,255,255,.16); border: 1.5px solid rgba(255,217,176,.55); padding: 5px 13px; border-radius: 999px;">Индивидуально</div>
           <div style="font-family: 'Fredoka'; font-weight: 600; font-size: 12.5px; white-space: nowrap; color: #fff; background: rgba(255,255,255,.16); border: 1.5px solid rgba(255,217,176,.55); padding: 5px 13px; border-radius: 999px;">Дети · подростки</div>
         </div>
+
+        <style>
+          @keyframes hero-btn-pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(255,217,176,.55), 0 8px 22px rgba(0,0,0,.28); }
+            50% { box-shadow: 0 0 0 8px rgba(255,217,176,.0), 0 8px 22px rgba(0,0,0,.28); }
+          }
+          .hero-cta {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-family: 'Fredoka'; font-weight: 600; font-size: 17px;
+            color: #7d0d11; background: #ffd9b0;
+            border: none; cursor: pointer;
+            padding: 13px 28px; border-radius: 999px;
+            animation: hero-btn-pulse 2s ease-in-out infinite;
+            transition: transform .15s ease, background .15s ease;
+            text-decoration: none;
+          }
+          .hero-cta:active { transform: scale(.97); }
+        </style>
+        <div style="margin-top: 22px;">
+          <a class="hero-cta" href="#signup-form">✏️ Записаться на занятие</a>
+        </div>
       </div>
     </div>
 
@@ -88,7 +109,7 @@
     </div>
 
     <!-- ============ FORM ============ -->
-    <div style="padding: 22px 24px 10px;">
+    <div id="signup-form" style="padding: 22px 24px 10px;">
       <div style="position: relative; background: #ffffff; border: 1.5px solid #efe6d7; border-radius: 22px; padding: 22px 20px 24px; box-shadow: 0 10px 26px rgba(60,35,15,.08);">
 
         <sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
@@ -119,11 +140,6 @@
                 <div style="font-family: 'Nunito'; font-weight: 800; font-size: 12px; letter-spacing: .5px; text-transform: uppercase; color: #a8997f; margin-bottom: 6px;">Телефон или @telegram *</div>
                 <input id="f-contact" type="text" placeholder="+375 __ ___-__-__  или  @username" style="width: 100%; font-size: 16px; font-weight: 600; color: #2c211b; background: #fbf6ec; border: 1.5px solid #ece0cd; border-radius: 13px; padding: 12px 14px;">
               </div>
-              <div>
-                <div style="font-family: 'Nunito'; font-weight: 800; font-size: 12px; letter-spacing: .5px; text-transform: uppercase; color: #a8997f; margin-bottom: 6px;">Комментарий</div>
-                <textarea id="f-msg" rows="2" placeholder="Уровень, цели, удобное время…" style="width: 100%; font-size: 15px; font-weight: 600; color: #2c211b; background: #fbf6ec; border: 1.5px solid #ece0cd; border-radius: 13px; padding: 12px 14px; resize: none;"></textarea>
-              </div>
-
               <sc-if value="{{ error }}" hint-placeholder-val="{{ false }}">
                 <div style="font-family: 'Nunito'; font-weight: 700; font-size: 13px; color: #c0392b; background: #fdecea; border: 1.5px solid #f3cdc8; border-radius: 11px; padding: 9px 13px;">Заполните, пожалуйста, имя и контакт 🙂</div>
               </sc-if>
@@ -185,8 +201,6 @@ class Component extends DCLogic {
     const age = get('f-age');
     const contact = get('f-contact');
     const format = get('f-format');
-    const msg = get('f-msg');
-
     if (!name || !contact) { this.setState({ error: true }); return; }
 
     let text = 'Здравствуйте! Хочу записаться на английский 🐾';
@@ -194,11 +208,10 @@ class Component extends DCLogic {
     if (age) text += '\nВозраст: ' + age;
     text += '\nКонтакт: ' + contact;
     text += '\nФормат: ' + format;
-    if (msg) text += '\nКомментарий: ' + msg;
 
     const waHref = 'https://wa.me/375291646839?text=' + encodeURIComponent(text);
 
-    try { localStorage.setItem('uc_request', JSON.stringify({ name, age, contact, format, msg, at: Date.now() })); } catch (e) {}
+    try { localStorage.setItem('uc_request', JSON.stringify({ name, age, contact, format, at: Date.now() })); } catch (e) {}
     try { window.open(waHref, '_blank'); } catch (e) {}
 
     this.setState({ submitted: true, error: false, waHref });
