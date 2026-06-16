@@ -192,7 +192,7 @@
 class Component extends DCLogic {
   state = { submitted: false, error: false, waHref: '#', tgHref: 'https://t.me/tsvirkouliana' };
 
-  submit() {
+  async submit() {
     const get = (id) => {
       const el = document.getElementById(id);
       return el ? String(el.value || '').trim() : '';
@@ -203,18 +203,15 @@ class Component extends DCLogic {
     const format = get('f-format');
     if (!name || !contact) { this.setState({ error: true }); return; }
 
-    let text = 'Здравствуйте! Хочу записаться на английский 🐾';
-    text += '\nИмя ученика: ' + name;
-    if (age) text += '\nВозраст: ' + age;
-    text += '\nКонтакт: ' + contact;
-    text += '\nФормат: ' + format;
+    try {
+      await fetch('/api/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, age, contact, format }),
+      });
+    } catch (e) {}
 
-    const waHref = 'https://wa.me/375291646839?text=' + encodeURIComponent(text);
-
-    try { localStorage.setItem('uc_request', JSON.stringify({ name, age, contact, format, at: Date.now() })); } catch (e) {}
-    try { window.open(waHref, '_blank'); } catch (e) {}
-
-    this.setState({ submitted: true, error: false, waHref });
+    this.setState({ submitted: true, error: false });
   }
 
   renderVals() {
