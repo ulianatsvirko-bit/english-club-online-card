@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: #d9cdb8; font-family: 'Nunito', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  input, select, textarea { font-family: 'Nunito', sans-serif; }
+  input:focus, select:focus, textarea:focus { outline: none; border-color: var(--accent, #a8161b) !important; }
+  input::placeholder, textarea::placeholder { color: #b9ab97; }
+  .lk { transition: transform .12s ease, box-shadow .12s ease; }
+  .lk:active { transform: translateY(1px) scale(.99); }
+</style>
+</helmet>
+
+<div style="--accent: {{ accent }}; min-height: 100%; display: flex; justify-content: center; background: #d9cdb8;">
+  <div style="width: 100%; max-width: 480px; background: #fdf7ec; min-height: 100%; box-shadow: 0 0 60px rgba(60,35,15,.18);">
+
+    <!-- ============ HERO ============ -->
+    <div style="position: relative; overflow: hidden; background-image: url('assets/bg-red.jpg'); background-size: cover; background-position: center; padding: 30px 26px 26px;">
+      <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(120,12,16,.28), rgba(120,12,16,.5));"></div>
+
+      <div style="position: relative; text-align: center;">
+        <div style="display: inline-flex; align-items: center; gap: 8px; font-family: 'Nunito'; font-weight: 800; font-size: 12.5px; letter-spacing: 3px; color: #ffd9b0; text-transform: uppercase;"><span style="font-size: 14px;">✦</span> English Club</div>
+
+        <div style="margin: 16px auto 0; width: 172px; height: 172px; border-radius: 50%; overflow: hidden; background: rgba(255,255,255,.12); border: 4px solid #ffd9b0; box-shadow: 0 12px 26px rgba(0,0,0,.32);">
+          <img src="assets/uliana.png" alt="Ульяна Цвирко" style="width: 100%; height: 100%; object-fit: cover; object-position: 50% 14%; transform: scale(1.06);">
+        </div>
+
+        <div style="font-family: 'Fredoka'; font-weight: 700; font-size: 40px; line-height: 1.02; color: #fff; margin-top: 16px; text-shadow: 0 2px 0 rgba(0,0,0,.2);">Ульяна Цвирко</div>
+        <div style="font-family: 'Fredoka'; font-weight: 500; font-size: 17px; color: #ffe6cf; margin-top: 6px;">Преподаватель английского</div>
+
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; margin-top: 16px;">
+          <div style="font-family: 'Fredoka'; font-weight: 600; font-size: 12.5px; white-space: nowrap; color: #7d0d11; background: #ffd9b0; padding: 5px 13px; border-radius: 999px;">Онлайн</div>
+          <div style="font-family: 'Fredoka'; font-weight: 600; font-size: 12.5px; white-space: nowrap; color: #fff; background: rgba(255,255,255,.16); border: 1.5px solid rgba(255,217,176,.55); padding: 5px 13px; border-radius: 999px;">Мини-группы</div>
+          <div style="font-family: 'Fredoka'; font-weight: 600; font-size: 12.5px; white-space: nowrap; color: #fff; background: rgba(255,255,255,.16); border: 1.5px solid rgba(255,217,176,.55); padding: 5px 13px; border-radius: 999px;">Индивидуально</div>
+          <div style="font-family: 'Fredoka'; font-weight: 600; font-size: 12.5px; white-space: nowrap; color: #fff; background: rgba(255,255,255,.16); border: 1.5px solid rgba(255,217,176,.55); padding: 5px 13px; border-radius: 999px;">Дети · подростки</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ METHOD / CLIL (lead) ============ -->
+    <div style="padding: 22px 24px 4px;">
+      <div style="position: relative; overflow: hidden; border-radius: 22px; background-image: url('assets/bg-red.jpg'); background-size: cover; background-position: center; padding: 24px 22px 24px; box-shadow: 0 12px 28px rgba(168,22,27,.24);">
+        <div style="position: absolute; inset: 0; background: linear-gradient(160deg, rgba(120,12,16,.34), rgba(120,12,16,.56));"></div>
+        <div style="position: relative;">
+          <div style="display: inline-flex; align-items: center; gap: 7px; white-space: nowrap; font-family: 'Nunito'; font-weight: 800; font-size: 12px; letter-spacing: 2px; color: #ffd9b0; text-transform: uppercase;"><span style="font-size: 13px;">✦</span> Методика CLIL · 2 в 1</div>
+          <div style="font-family: 'Fredoka'; font-weight: 700; font-size: 25px; line-height: 1.1; color: #fff; margin-top: 11px; text-shadow: 0 2px 0 rgba(0,0,0,.18);">Учим английский — и&nbsp;познаём мир</div>
+          <div style="font-family: 'Nunito'; font-weight: 600; font-size: 14.5px; line-height: 1.55; color: #ffeede; margin-top: 10px;">Мои занятия — это английский и расширение кругозора одновременно. Мы изучаем интересные и важные темы прямо на английском: ребёнок не просто учит слова и правила, а узнаёт новое о мире. Язык становится инструментом и осваивается естественно, как родной.</div>
+
+          <div style="display: flex; align-items: center; gap: 9px; margin-top: 17px;">
+            <div style="flex: 1; text-align: center; font-family: 'Fredoka'; font-weight: 600; font-size: 14px; color: #7d0d11; background: #ffd9b0; padding: 9px 6px; border-radius: 12px;">🗣 Английский</div>
+            <div style="flex: none; font-family: 'Fredoka'; font-weight: 700; font-size: 20px; color: #ffd9b0;">+</div>
+            <div style="flex: 1; text-align: center; font-family: 'Fredoka'; font-weight: 600; font-size: 14px; color: #fff; background: rgba(255,255,255,.18); border: 1.5px solid rgba(255,217,176,.55); padding: 9px 6px; border-radius: 12px;">🌍 Кругозор</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ ABOUT ============ -->
+    <div style="padding: 28px 24px 8px;">
+      <div style="font-family: 'Fredoka'; font-weight: 600; font-size: 20px; color: #2c211b;">Как проходят занятия</div>
+
+      <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 14px;">
+        <div style="display: flex; gap: 13px; align-items: flex-start; background: #fffdf9; border: 1.5px solid #efe6d7; border-radius: 16px; padding: 14px 16px;">
+          <div style="flex: none; width: 40px; height: 40px; border-radius: 12px; background: #fdeada; display: flex; align-items: center; justify-content: center; font-size: 20px;">🎲</div>
+          <div><div style="font-family: 'Fredoka'; font-weight: 600; font-size: 16px; color: #2c211b;">Игры и истории</div><div style="font-size: 13.5px; color: #8a7a68; line-height: 1.45;">Живой формат, в котором хочется участвовать</div></div>
+        </div>
+        <div style="display: flex; gap: 13px; align-items: flex-start; background: #fffdf9; border: 1.5px solid #efe6d7; border-radius: 16px; padding: 14px 16px;">
+          <div style="flex: none; width: 40px; height: 40px; border-radius: 12px; background: #fdeada; display: flex; align-items: center; justify-content: center; font-size: 20px;">💬</div>
+          <div><div style="font-family: 'Fredoka'; font-weight: 600; font-size: 16px; color: #2c211b;">Разговор с первого урока</div><div style="font-size: 13.5px; color: #8a7a68; line-height: 1.45;">Главное — говорить, а не молчать над правилами</div></div>
+        </div>
+        <div style="display: flex; gap: 13px; align-items: flex-start; background: #fffdf9; border: 1.5px solid #efe6d7; border-radius: 16px; padding: 14px 16px;">
+          <div style="flex: none; width: 40px; height: 40px; border-radius: 12px; background: #fdeada; display: flex; align-items: center; justify-content: center; font-size: 20px;">🎯</div>
+          <div><div style="font-family: 'Fredoka'; font-weight: 600; font-size: 16px; color: #2c211b;">Программа под ученика</div><div style="font-size: 13.5px; color: #8a7a68; line-height: 1.45;">Под уровень, цели и интересы каждого</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ FORM ============ -->
+    <div style="padding: 22px 24px 10px;">
+      <div style="position: relative; background: #ffffff; border: 1.5px solid #efe6d7; border-radius: 22px; padding: 22px 20px 24px; box-shadow: 0 10px 26px rgba(60,35,15,.08);">
+
+        <sc-if value="{{ showForm }}" hint-placeholder-val="{{ true }}">
+          <div>
+            <div style="font-family: 'Fredoka'; font-weight: 600; font-size: 21px; color: #2c211b;">Записаться на занятие</div>
+            <div style="font-family: 'Nunito'; font-weight: 600; font-size: 13.5px; color: #8a7a68; margin-top: 4px;">Оставьте заявку — свяжусь с вами и подберём время.</div>
+
+            <div style="display: flex; flex-direction: column; gap: 13px; margin-top: 18px;">
+              <div>
+                <div style="font-family: 'Nunito'; font-weight: 800; font-size: 12px; letter-spacing: .5px; text-transform: uppercase; color: #a8997f; margin-bottom: 6px;">Имя ученика *</div>
+                <input id="f-name" type="text" placeholder="Например, Маша" style="width: 100%; font-size: 16px; font-weight: 600; color: #2c211b; background: #fbf6ec; border: 1.5px solid #ece0cd; border-radius: 13px; padding: 12px 14px;">
+              </div>
+              <div style="display: flex; gap: 11px;">
+                <div style="flex: 1;">
+                  <div style="font-family: 'Nunito'; font-weight: 800; font-size: 12px; letter-spacing: .5px; text-transform: uppercase; color: #a8997f; margin-bottom: 6px;">Возраст</div>
+                  <input id="f-age" type="text" inputmode="numeric" placeholder="9" style="width: 100%; font-size: 16px; font-weight: 600; color: #2c211b; background: #fbf6ec; border: 1.5px solid #ece0cd; border-radius: 13px; padding: 12px 14px;">
+                </div>
+                <div style="flex: 2;">
+                  <div style="font-family: 'Nunito'; font-weight: 800; font-size: 12px; letter-spacing: .5px; text-transform: uppercase; color: #a8997f; margin-bottom: 6px;">Формат</div>
+                  <select id="f-format" style="width: 100%; font-size: 15px; font-weight: 600; color: #2c211b; background: #fbf6ec; border: 1.5px solid #ece0cd; border-radius: 13px; padding: 12px 12px;">
+                    <option>Онлайн · индивидуально</option>
+                    <option>Онлайн · мини-группа</option>
+                    <option>Пока не решили</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <div style="font-family: 'Nunito'; font-weight: 800; font-size: 12px; letter-spacing: .5px; text-transform: uppercase; color: #a8997f; margin-bottom: 6px;">Телефон или @telegram *</div>
+                <input id="f-contact" type="text" placeholder="+375 __ ___-__-__  или  @username" style="width: 100%; font-size: 16px; font-weight: 600; color: #2c211b; background: #fbf6ec; border: 1.5px solid #ece0cd; border-radius: 13px; padding: 12px 14px;">
+              </div>
+              <div>
+                <div style="font-family: 'Nunito'; font-weight: 800; font-size: 12px; letter-spacing: .5px; text-transform: uppercase; color: #a8997f; margin-bottom: 6px;">Комментарий</div>
+                <textarea id="f-msg" rows="2" placeholder="Уровень, цели, удобное время…" style="width: 100%; font-size: 15px; font-weight: 600; color: #2c211b; background: #fbf6ec; border: 1.5px solid #ece0cd; border-radius: 13px; padding: 12px 14px; resize: none;"></textarea>
+              </div>
+
+              <sc-if value="{{ error }}" hint-placeholder-val="{{ false }}">
+                <div style="font-family: 'Nunito'; font-weight: 700; font-size: 13px; color: #c0392b; background: #fdecea; border: 1.5px solid #f3cdc8; border-radius: 11px; padding: 9px 13px;">Заполните, пожалуйста, имя и контакт 🙂</div>
+              </sc-if>
+
+              <button class="lk" onClick="{{ submit }}" style="margin-top: 4px; width: 100%; border: none; cursor: pointer; font-family: 'Fredoka'; font-weight: 600; font-size: 18px; color: #fff; background: var(--accent, #a8161b); border-radius: 14px; padding: 15px; box-shadow: 0 8px 18px rgba(168,22,27,.28);">Оставить заявку →</button>
+              <div style="font-family: 'Nunito'; font-weight: 600; font-size: 12px; color: #b3a48f; text-align: center;">Откроется WhatsApp с готовым сообщением — просто отправьте его</div>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ showSuccess }}" hint-placeholder-val="{{ false }}">
+          <div style="text-align: center; padding: 8px 4px 6px;">
+            <div style="width: 62px; height: 62px; margin: 0 auto; border-radius: 50%; background: #eaf7f1; border: 2px solid #bfe6d3; display: flex; align-items: center; justify-content: center; font-size: 30px;">✓</div>
+            <div style="font-family: 'Fredoka'; font-weight: 600; font-size: 22px; color: #2c211b; margin-top: 14px;">Заявка готова!</div>
+            <div style="font-family: 'Nunito'; font-weight: 600; font-size: 14.5px; color: #6f6253; line-height: 1.5; margin-top: 8px;">Если чат не открылся автоматически — напишите мне напрямую, я отвечу и подберём удобное время.</div>
+            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 18px;">
+              <a class="lk" href="{{ waHref }}" target="_blank" rel="noopener" style="text-decoration: none; display: block; font-family: 'Fredoka'; font-weight: 600; font-size: 16px; color: #fff; background: #25a35a; border-radius: 13px; padding: 13px;">Написать в WhatsApp</a>
+              <a class="lk" href="{{ tgHref }}" target="_blank" rel="noopener" style="text-decoration: none; display: block; font-family: 'Fredoka'; font-weight: 600; font-size: 16px; color: #fff; background: #2f9bd8; border-radius: 13px; padding: 13px;">Написать в Telegram</a>
+              <button class="lk" onClick="{{ reset }}" style="border: none; cursor: pointer; background: transparent; font-family: 'Nunito'; font-weight: 700; font-size: 13.5px; color: #a8997f; padding: 4px;">← Изменить заявку</button>
+            </div>
+          </div>
+        </sc-if>
+
+      </div>
+    </div>
+
+    <!-- ============ CONTACTS ============ -->
+    <div style="padding: 12px 24px 30px;">
+      <div style="font-family: 'Fredoka'; font-weight: 600; font-size: 18px; color: #2c211b; margin: 6px 2px 12px;">Или напишите напрямую</div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <a class="lk" href="tel:+375291646839" style="position: relative; overflow: hidden; text-decoration: none; display: flex; align-items: center; gap: 13px; border-radius: 15px; padding: 14px 16px; background-image: url('assets/bg-red.jpg'); background-size: cover; background-position: center; box-shadow: 0 6px 16px rgba(168,22,27,.2);">
+          <div style="position: absolute; inset: 0; background: linear-gradient(150deg, rgba(120,12,16,.42), rgba(120,12,16,.6));"></div>
+          <div style="position: relative; flex: none; width: 40px; height: 40px; border-radius: 50%; background: #ffd9b0; display: flex; align-items: center; justify-content: center;"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#7d0d11" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div>
+          <div style="position: relative;"><div style="font-family: 'Nunito'; font-weight: 700; font-size: 11.5px; letter-spacing: .5px; text-transform: uppercase; color: #ffd9b0;">Телефон</div><div style="font-family: 'Fredoka'; font-weight: 600; font-size: 18px; color: #fff;">+375 29 164-68-39</div></div>
+        </a>
+        <a class="lk" href="https://t.me/tsvirkouliana" target="_blank" rel="noopener" style="position: relative; overflow: hidden; text-decoration: none; display: flex; align-items: center; gap: 13px; border-radius: 15px; padding: 14px 16px; background-image: url('assets/bg-red.jpg'); background-size: cover; background-position: center top; box-shadow: 0 6px 16px rgba(168,22,27,.2);">
+          <div style="position: absolute; inset: 0; background: linear-gradient(150deg, rgba(120,12,16,.42), rgba(120,12,16,.6));"></div>
+          <div style="position: relative; flex: none; width: 40px; height: 40px; border-radius: 50%; background: #ffd9b0; display: flex; align-items: center; justify-content: center;"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#7d0d11" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"></path><path d="M22 2l-7 20-4-9-9-4 20-7z"></path></svg></div>
+          <div style="position: relative;"><div style="font-family: 'Nunito'; font-weight: 700; font-size: 11.5px; letter-spacing: .5px; text-transform: uppercase; color: #ffd9b0;">Telegram</div><div style="font-family: 'Fredoka'; font-weight: 600; font-size: 18px; color: #fff;">@tsvirkouliana</div></div>
+        </a>
+      </div>
+
+      <div style="text-align: center; margin-top: 26px; font-family: 'Fredoka'; font-weight: 600; font-size: 13px; letter-spacing: 2px; color: #c3b6a3; text-transform: uppercase;">✦ English Club</div>
+    </div>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 460, &quot;height&quot;: 940}, &quot;accent&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#a8161b&quot;, &quot;options&quot;: [&quot;#a8161b&quot;, &quot;#c0392b&quot;, &quot;#8e1c5a&quot;, &quot;#1f6f54&quot;]}}">
+class Component extends DCLogic {
+  state = { submitted: false, error: false, waHref: '#', tgHref: 'https://t.me/tsvirkouliana' };
+
+  submit() {
+    const get = (id) => {
+      const el = document.getElementById(id);
+      return el ? String(el.value || '').trim() : '';
+    };
+    const name = get('f-name');
+    const age = get('f-age');
+    const contact = get('f-contact');
+    const format = get('f-format');
+    const msg = get('f-msg');
+
+    if (!name || !contact) { this.setState({ error: true }); return; }
+
+    let text = 'Здравствуйте! Хочу записаться на английский 🐾';
+    text += '\nИмя ученика: ' + name;
+    if (age) text += '\nВозраст: ' + age;
+    text += '\nКонтакт: ' + contact;
+    text += '\nФормат: ' + format;
+    if (msg) text += '\nКомментарий: ' + msg;
+
+    const waHref = 'https://wa.me/375291646839?text=' + encodeURIComponent(text);
+
+    try { localStorage.setItem('uc_request', JSON.stringify({ name, age, contact, format, msg, at: Date.now() })); } catch (e) {}
+    try { window.open(waHref, '_blank'); } catch (e) {}
+
+    this.setState({ submitted: true, error: false, waHref });
+  }
+
+  renderVals() {
+    return {
+      accent: this.props.accent ?? '#a8161b',
+      showForm: !this.state.submitted,
+      showSuccess: this.state.submitted,
+      error: this.state.error,
+      waHref: this.state.waHref,
+      tgHref: this.state.tgHref,
+      submit: () => this.submit(),
+      reset: () => this.setState({ submitted: false, error: false }),
+    };
+  }
+}
+</script>
+</body>
+</html>
